@@ -6,16 +6,17 @@
 package proyectomodelamiento;
 
 public class Enfermero extends Gerente {
-       public String getUsuario() {
+    public String getUsuario() {
         return usuario;
     }
 
      
        
        public void Saludar(){
-           System.out.println("Vos mismo");    
-       }
-       
+        System.out.println("Vos mismo");
+        
+    }
+ 
        
     public void setUsuario(String usuario) {
         this.usuario = usuario;
@@ -32,7 +33,7 @@ public class Enfermero extends Gerente {
     public Enfermero(String usuario, String contraseña) {
         super(usuario, contraseña);
     }
-    
+
     
    
     
