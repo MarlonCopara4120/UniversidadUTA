@@ -14,9 +14,8 @@ public class Enfermero extends Gerente {
        
        public void Saludar(){
         System.out.println("Vos mismo");
-        
     }
- 
+
        
     public void setUsuario(String usuario) {
         this.usuario = usuario;
@@ -34,7 +33,9 @@ public class Enfermero extends Gerente {
         super(usuario, contraseña);
     }
 
-    
+    public void nuevoMetodo() {
+
    
     
+    }
 }
