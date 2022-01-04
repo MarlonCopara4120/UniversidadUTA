@@ -10,6 +10,13 @@ public class Enfermero extends Gerente {
         return usuario;
     }
 
+     
+       
+       public void Saludar(){
+           System.out.println("Vos mismo");    
+       }
+       
+       
     public void setUsuario(String usuario) {
         this.usuario = usuario;
     }
