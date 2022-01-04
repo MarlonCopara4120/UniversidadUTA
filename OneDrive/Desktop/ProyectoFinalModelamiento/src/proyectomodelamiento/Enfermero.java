@@ -14,7 +14,10 @@ public class Enfermero extends Gerente {
        
        public void Saludar(){
            System.out.println("Vos mismo");    
+           System.out.println("Ya mija el sueño");
        }
+       
+       
        
        
     public void setUsuario(String usuario) {
