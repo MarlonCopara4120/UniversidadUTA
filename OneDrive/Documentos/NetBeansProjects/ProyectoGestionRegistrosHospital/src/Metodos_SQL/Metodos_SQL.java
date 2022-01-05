@@ -9,19 +9,20 @@ public class Metodos_SQL {
     public static PreparedStatement sentencia_preparada;
    
     
-    public int guardar(String nombre, String apellidos, String correo, String contraseña) throws SQLException {
+    public int guardar(String nombre, String apellidos, String servicio,String usuario, String contraseña) throws SQLException {
         int resultado = 0;
         Connection conexion = null;
 
-        String sentencia_guardar = ("INSERT INTO usuarios (nombre,apellidos,correo,contraseña)VALUES(?,?,?,?)");
+       String sentencia_guardar = ("INSERT INTO login (Nombre,Apellido,Servicio,Usuario,Contraseña)VALUES(?,?,?,?,?)");
 
         try {
             conexion = ConexionBD.conectar();
             sentencia_preparada = conexion.prepareStatement(sentencia_guardar);
             sentencia_preparada.setString(1, nombre);
             sentencia_preparada.setString(2, apellidos);
-            sentencia_preparada.setString(3, correo);
-            sentencia_preparada.setString(4, contraseña);
+            sentencia_preparada.setString(3, servicio);
+            sentencia_preparada.setString(4, usuario);
+            sentencia_preparada.setString(5, contraseña);
 
             resultado = sentencia_preparada.executeUpdate();
             sentencia_preparada.close();
