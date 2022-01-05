@@ -7,6 +7,7 @@ package Metodos_SQL;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
@@ -16,6 +17,7 @@ import java.sql.SQLException;
 public class Metodos_SQL {
 
     public static PreparedStatement sentencia_preparada;
+    public static ResultSet resultado;
 
     public int guardar(String nombre, String apellidos, String servicio, String usuario, String contraseña) throws SQLException {
         int resultado = 0;
@@ -40,5 +42,28 @@ public class Metodos_SQL {
             System.out.println(e);
         }
         return resultado;
+    }
+
+    public static String buscarNombre(String usuario) {
+        String busqueda_nombre = null;
+        Connection conexion = null;
+
+        try {
+            conexion = ConexionBD.conectar();
+            String sentencia_buscar = ("SELECT Nombre,Apellido,Servicio FROM login WHERE Usuario = '" + usuario + "'");
+            sentencia_preparada = conexion.prepareStatement(sentencia_buscar);
+            resultado = sentencia_preparada.executeQuery();
+
+            if (resultado.next()) {
+                String nombre = resultado.getString("Nombre");
+                String apellidos = resultado.getString("Apellido");
+                busqueda_nombre = (nombre + "" + apellidos);
+
+                conexion.close();
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return busqueda_nombre;
     }
 }
