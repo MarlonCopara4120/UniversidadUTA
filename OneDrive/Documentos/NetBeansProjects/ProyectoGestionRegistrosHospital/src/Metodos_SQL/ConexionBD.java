@@ -13,7 +13,6 @@ public class ConexionBD {
 
     public static Connection conectar() {
         Connection conexion = null;
-
         try {
             Class.forName(clase);
             conexion = (Connection) DriverManager.getConnection(url, usuario, contraseña);
