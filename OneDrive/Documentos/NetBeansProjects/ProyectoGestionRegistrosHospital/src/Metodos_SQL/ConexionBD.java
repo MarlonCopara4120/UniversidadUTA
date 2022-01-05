@@ -1,12 +1,12 @@
+
 package Metodos_SQL;
 
-import com.mysql.jdbc.Connection;
+import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConexionBD {
-
-    public static String url = "jdbc:mysql://localhost/proyectobd";
+      public static String url = "jdbc:mysql://localhost/proyectobd";
     public static String usuario = "hospital";
     public static String contraseña = "hospital123";
     public static String clase = "com.mysql.jdbc.Driver";
