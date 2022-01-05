@@ -1,1 +1,1 @@
-# ProyectoGestionRegistrosHospital
+# ProyectoGestionRegistroHospital
