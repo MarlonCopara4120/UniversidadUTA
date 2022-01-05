@@ -66,4 +66,27 @@ public class Metodos_SQL {
         }
         return busqueda_nombre;
     }
+
+    public static String buscarUsuarioRegistrado(String usuario, String contraseña) {
+        String busqueda_usuario = null;
+        Connection conexion = null;
+
+        try {
+            conexion = ConexionBD.conectar();
+            String sentencia_buscar_usuario = ("SELECT Nombre,Apellido,Servicio,Usuario,Contraseña FROM login WHERE Usuario= '" + usuario + "' &&Contraseña='" + contraseña + "'");
+
+            sentencia_preparada = conexion.prepareStatement(sentencia_buscar_usuario);
+            resultado = sentencia_preparada.executeQuery();
+            if (resultado.next()) {
+                busqueda_usuario = "Usuario Encontrado";
+            } else {
+                busqueda_usuario = "Usuario no Encontrado";
+            }
+
+            conexion.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return busqueda_usuario;
+    }
 }
